@@ -27,6 +27,11 @@ class Login extends React.Component {
 		router: React.PropTypes.object.isRequired
 	}
 
+	// コンストラクタでcontextを受け取るようにする
+	constructor(props, context) {
+		...
+	}
+
 	anyMethod() {
 		// this.context.router でルーターインスタンスを参照
 		this.context.router.push({
@@ -80,10 +85,12 @@ class someComponent {
 ```
 // 上位のコンポーネント(たとえば`Dashboard.jsx`)で
 class Dashboard extends React.Component {
+	// `childContextTypes`を指定することで子コンポーネントが下記コンテクストにアクセスできる
 	static childContextTypes = {
 		user: React.PropTypes.object
 	}
 
+	// 実際に子コンポーネントから参照されたときに返すコンテクストオブジェクト
 	getChildContext() {
 		return {
 			user: user // 任意のユーザーオブジェクト
