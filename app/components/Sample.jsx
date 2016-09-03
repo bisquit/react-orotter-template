@@ -2,16 +2,16 @@ import React from 'react';
 
 /* 1. Component (Class) */
 class SampleComponent extends React.Component {
-  // Constructor (Optional)
+  // 1.1 Constructor (Optional)
   constructor(props) {
     super(props); // Must be call `super(props)` if you call constructor
 
-    // Set initial state
+    // 1.2 Set initial state (Optional)
     this.state = {
       text: ''
     }
 
-    // Bind method to `this`
+    // 1.3 Bind method to `this`(Optional)
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -23,7 +23,7 @@ class SampleComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="my-sample-component">
         <h1>Input any text below!</h1>
         <input type="text" value={this.state.text} onChange={this.handleChange} />
         <div>You typed: {this.state.text}</div>
